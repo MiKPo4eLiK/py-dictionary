@@ -1,15 +1,15 @@
 class Node:
-    def __init__(self, key, value) -> None:
+    def __init__(self, key: str, value: any) -> None:
         self.key = key
         self.hash = hash(key)
         self.value = value
 
 
 class Dictionary:
-    def __init__(self, initial_capacity=8) -> None:
+    def __init__(self, initial_capacity: int = 8) -> None:
         self.capacity = initial_capacity
         self.size = 0
-        self.table = [None] * self.capacity
+        self.table: list[list[Node] | None] = [None] * self.capacity
 
     def _hash(self, key: int) -> int:
         return hash(key) % self.capacity
@@ -42,7 +42,7 @@ class Dictionary:
 
         raise KeyError(f"Key '{key}' not found")
 
-    def __len__(self):
+    def __len__(self) -> int:
         return self.size
 
     def _resize(self) -> None:
