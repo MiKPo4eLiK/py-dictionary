@@ -56,7 +56,7 @@ class Dictionary:
                 for node in bucket:
                     self.__setitem__(node.key, node.value)
 
-    def __delitem__(self, key: str) -> None:
+    def __delitem__(self, key: int) -> None:
         index = self._hash(key)
         if self.table[index] is None:
             raise KeyError(f"Key '{key}' not found")
